@@ -1,31 +1,22 @@
 from django.shortcuts import render
-from django.http import HttpResponse   # إذا كنتِ لا زلتِ تستخدمينه لـ index2
+from django.http import HttpResponse   # لو لسه تحتاجين index2، وإلا تقدرين تحذفينه
 
-def index(request):
-    name = request.GET.get("name") or "world!"
-    context = {"name": name}
-    return render(request, "bookmodule/index.html", context)
-
+# لو لسه تبين تحتفظين بـ index2 من لاب 3:
 def index2(request, val1=0):
     return HttpResponse("value1 " + str(val1))
 
+
+# صفحات لاب 4
+
+def index(request):
+    return render(request, 'bookmodule/index.html')
+
+def list_books(request):
+    return render(request, 'bookmodule/list_books.html')
+
 def viewbook(request, bookId):
-    book1 = {
-        "id": 123,
-        "title": "Continuous Delivery",
-        "author": "J. Humble and D. Farley",
-    }
-    book2 = {
-        "id": 456,
-        "title": "Secrets of Reverse Engineering",
-        "author": "E. Eilam",
-    }
+    return render(request, 'bookmodule/one_book.html')
 
-    targetBook = None
-    if book1["id"] == bookId:
-        targetBook = book1
-    if book2["id"] == bookId:
-        targetBook = book2
+def aboutus(request):
+    return render(request, 'bookmodule/aboutus.html')
 
-    context = {"book": targetBook}   # 'book' هو الاسم اللي راح نستخدمه في القالب
-    return render(request, "bookmodule/show.html", context)

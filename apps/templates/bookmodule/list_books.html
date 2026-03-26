@@ -1,0 +1,31 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block title %}
+List of Books
+{% endblock title %}
+
+{% block content %}
+
+<h1>List of Books</h1>
+
+<a href="{% url 'books.view_one_book' 123 %}">
+    <h2>رواية دميان</h2>
+</a>
+<a href="{% url 'books.view_one_book' 123 %}">
+    <img src="{% static 'book1.jpg' %}" alt="Book1 img desc" width="200" height="200">
+</a>
+
+<hr>
+
+<h2>2 الوزير المرافق</h2>
+<img src="{% static 'book2.jpg' %}" alt="Book2 img desc" width="200" height="200">
+
+<hr>
+
+<h2>3 الف ليله وليله</h2>
+<img src="{% static 'book3.jpg' %}" alt="Book3 img desc" width="200" height="200">
+
+<hr>
+
+{% endblock content %}
