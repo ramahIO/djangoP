@@ -1,0 +1,29 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block title %}
+Links Page
+{% endblock %}
+
+{% block content %}
+
+<h1>Links Example</h1>
+
+<a href="https://qu.edu.sa" target="_blank" class="link1">
+    Go to QU website (open in new tab)
+</a>
+
+<a href="https://qu.edu.sa" class="link2">
+    Go to QU website (same tab)
+</a>
+
+<a href="https://qu.edu.sa" class="link3">
+    Go to QU website (styled differently)
+</a>
+
+<div class="container">
+</div>
+
+<a href="{% url 'books.index' %}">⬅ Back to Home</a>
+
+{% endblock %}

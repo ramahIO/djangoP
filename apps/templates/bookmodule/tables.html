@@ -1,0 +1,128 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block title %}
+Tables
+{% endblock %}
+
+{% block content %}
+
+<hr>
+
+<td>
+    <img src="{% static 'qu-icon.png' %}" width="120">
+</td>
+
+
+<br>
+
+<!-- TABLE 1 -->
+<h4 style="text-align:center;">
+    Table 1: Table of Fruits and Their Prices
+</h4>
+
+<table class="table1">
+    <tr>
+        <th>Fruit</th>
+        <th>Price</th>
+    </tr>
+    <tr>
+        <td>Apple</td>
+        <td>$0.25</td>
+    </tr>
+    <tr>
+        <td>Orange</td>
+        <td>$0.50</td>
+    </tr>
+    <tr>
+        <td>Banana</td>
+        <td>$1.00</td>
+    </tr>
+    <tr>
+        <td>Pineapple</td>
+        <td>$2.00</td>
+    </tr>
+    <tr>
+        <th>Total</th>
+        <th>$3.75</th>
+    </tr>
+</table>
+
+<br>
+
+<!--TABLE 2 -->
+<h4 style="text-align:center;">
+    Table 2: A more complex sample table
+</h4>
+<table class="table2">
+
+    <tr>
+
+        <td rowspan="2">
+            <img src="{% static 'book1.jpg' %}" width="200">
+        </td>
+
+        <td colspan="3" class="center">
+            <strong>Key facts about the novel Demian</strong><br>
+            Approximate as of 1919
+        </td>
+    </tr>
+
+    <tr>
+        <th>Category</th>
+        <th>Details</th>
+        <th>Notes</th>
+    </tr>
+
+    <tr>
+        <td>Author</td>
+        <td>Hermann Hesse</td>
+        <td>Published under "Emil Sinclair"</td>
+        <td>Reflects autobiographical influence</td>
+    </tr>
+
+    <tr>
+        <td>Publication</td>
+        <td>1919</td>
+        <td>Post World War I</td>
+        <td>Represents psychological recovery era</td>
+    </tr>
+
+    <tr>
+        <td>Genre</td>
+        <td>Philosophical / Coming-of-age</td>
+        <td>Bildungsroman</td>
+        <td>Focus on inner self-development</td>
+    </tr>
+
+    <tr>
+        <td>Main Character</td>
+        <td>Emil Sinclair</td>
+        <td>Seeker of identity</td>
+        <td>Represents human internal conflict</td>
+    </tr>
+
+    <tr>
+        <td>Key Figure</td>
+        <td>Max Demian</td>
+        <td>Mentor & guide</td>
+        <td>Symbol of intellectual awakening</td>
+    </tr>
+
+    <tr>
+        <td>Main Theme</td>
+        <td>Duality (Good & Evil)</td>
+        <td>Breaking social norms</td>
+        <td>Essential for maturity</td>
+    </tr>
+
+    <tr>
+        <td>Symbols</td>
+        <td>Abraxas</td>
+        <td>Unity of opposites</td>
+        <td>Represents balance of light & darkness</td>
+    </tr>
+
+</table>
+
+{% endblock %}

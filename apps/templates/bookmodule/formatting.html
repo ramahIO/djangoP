@@ -1,0 +1,35 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block title %}
+Text Formatting
+{% endblock %}
+
+{% block content %}
+
+<h1>HTML Text Formatting</h1>
+
+<p><b>This is bold text</b></p>
+<p><strong>This is strong text</strong></p>
+
+<p><i>This is italic text</i></p>
+<p><em>This is emphasized text</em></p>
+
+<p><u>This is underlined text</u></p>
+
+<p><small>This is small text</small></p>
+
+<p>This is <mark>highlighted</mark> text</p>
+
+<p>This is <del>deleted</del> text</p>
+<p>This is <ins>inserted</ins> text</p>
+
+<p>H<sub>2</sub>O (subscript)</p>
+<p>2<sup>3</sup> = 8 (superscript)</p>
+
+<div class="container">
+</div>
+
+<a href="{% url 'books.index' %}">⬅ Back to Home</a>
+
+{% endblock %}

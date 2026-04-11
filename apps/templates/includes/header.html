@@ -1,5 +1,9 @@
-<div class="topnav">
+<nav class="navbar">
     <a href="{% url 'books.index' %}">Home</a>
-    <a href="{% url 'books.list_books' %}">List Books</a>
+    <a href="{% url 'books.list_books' %}">Books</a>
     <a href="{% url 'books.aboutus' %}">About</a>
-</div>
+    <a href="{% url 'links' %}">Links</a>
+    <a href="{% url 'books.formatting' %}">Formatting</a>
+    <a href="{% url 'books.listing' %}">Lists</a>
+    <a href="/books/search">Search</a>
+</nav>
