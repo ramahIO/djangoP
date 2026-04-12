@@ -55,25 +55,25 @@ def searchBooks(request):
     return render(request, 'bookmodule/search.html')
 
 def __getBooksList():
-    book1 = {'id':12344321, 'title':'Continuous Delivery', 'author':'J.Humble and D. Farley'}
-    book2 = {'id':56788765, 'title':'Reversing: Secrets of Reverse Engineering', 'author':'E. Eilam'}
-    book3 = {'id':43211234, 'title':'The Hundred-Page Machine Learning Book', 'author':'Andriy Burkov'}
+    book1 = {'id':12344321, 'title':'Domian ', 'author':'J.Humble and D. Farley'}
+    book2 = {'id':56788765, 'title':'accompanying minister', 'author':'gazi alqusibi'}
+    book3 = {'id':43211234, 'title':'1001 night', 'author':'Andriy Burkov'}
     return [book1, book2, book3]
 
 
 def insertBooks(request):
-    Book.objects.create(title='Continuous Delivery', author='J.Humble and D. Farley', price=120.00, edition=3)
-    Book.objects.create(title='Reversing: Secrets of Reverse Engineer', author='E. Eilam', price=97.00, edition=2)
-    Book.objects.create(title='The Hundred-Page Machine Learning Book', author='Andriy Burkov', price=100.00, edition=4)
+    Book.objects.create(title='Domian', author='J.Humble and D. Farley', price=120.00)
+    Book.objects.create(title='accompanying minister', author='gazi alqusibi', price=97.00)
+    Book.objects.create(title='1001 night', author='Andriy Burkov', price=100.00)
     return render(request, 'bookmodule/bookList.html', {'books': Book.objects.all()})
 
 def simple_query(request):
-    mybooks = Book.objects.filter(title__icontains='the')
+    mybooks = Book.objects.filter(title__icontains='night')
     return render(request, 'bookmodule/bookList.html', {'books': mybooks})
 
 def complex_query(request):
     mybooks = Book.objects.filter(author__isnull=False)\
-                          .filter(title__icontains='the')\
+                          .filter(title__icontains='minister')\
                           .filter(edition__gte=2)\
                           .exclude(price__lte=50)[:10]
     if len(mybooks) >= 1:
