@@ -1,0 +1,9 @@
+{% extends "layouts/base.html" %}
+{% block title %} Task 7 {% endblock title %}
+
+{% block content %}
+<h3>Students per City:</h3>
+{% for city in cities %}
+<p><strong>{{ city.city }}:</strong> {{ city.student_count }} students</p>
+{% endfor %}
+{% endblock content %}

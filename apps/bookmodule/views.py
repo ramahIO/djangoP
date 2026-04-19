@@ -80,3 +80,55 @@ def complex_query(request):
         return render(request, 'bookmodule/bookList.html', {'books': mybooks})
     else:
         return render(request, 'bookmodule/index.html')
+    
+
+
+def lab8_task1(request):
+    books = Book.objects.filter(Q(price__lte=80))
+    return render(request, 'bookmodule/bookList.html', {'books': books})
+
+
+from django.db.models import Q
+
+
+def lab8_task2(request):
+    books = Book.objects.filter(
+        Q(edition__gte=1) & 
+        (Q(title__icontains='or') | Q(author__icontains='or'))
+    )
+    return render(request, 'bookmodule/bookList.html', {'books': books})
+
+def lab8_task3(request):
+    books = Book.objects.filter(
+        ~Q(edition__gt=3) & 
+        ~(Q(title__icontains='qu') | Q(author__icontains='qu'))
+    )
+    return render(request, 'bookmodule/bookList.html', {'books': books})
+
+
+
+def lab8_task4(request):
+    books = Book.objects.all().order_by('title')
+    return render(request, 'bookmodule/bookList.html', {'books': books})
+
+
+
+from django.db.models import Count, Sum, Avg, Max, Min
+
+def lab8_task5(request):
+    data = Book.objects.aggregate(
+        total_books  = Count('id'),
+        total_price  = Sum('price'),
+        avg_price    = Avg('price'),
+        max_price    = Max('price'),
+        min_price    = Min('price'),
+    )
+    return render(request, 'bookmodule/task5.html', {'data': data})
+
+
+from .models import Book, Address, Student
+from django.db.models import Count
+
+def lab8_task7(request):
+    cities = Address.objects.annotate(student_count=Count('student'))
+    return render(request, 'bookmodule/task7.html', {'cities': cities})
