@@ -22,5 +22,13 @@ path('lab8/task3', views.lab8_task3, name='lab8-task3'),
 path('lab8/task4', views.lab8_task4, name='lab8-task4'),
 path('lab8/task5', views.lab8_task5, name='lab8-task5'),
 path('lab8/task7', views.lab8_task7, name='lab8-task7'),
+path('lab9_part1/listbooks', views.p1_listbooks, name='p1-listbooks'),
+path('lab9_part1/addbook', views.p1_addbook, name='p1-addbook'),
+path('lab9_part1/editbook/<int:id>', views.p1_editbook, name='p1-editbook'),
+path('lab9_part1/deletebook/<int:id>', views.p1_deletebook, name='p1-deletebook'),
+path('lab9_part2/listbooks', views.p2_listbooks, name='p2-listbooks'),
+path('lab9_part2/addbook', views.p2_addbook, name='p2-addbook'),
+path('lab9_part2/editbook/<int:id>', views.p2_editbook, name='p2-editbook'),
+path('lab9_part2/deletebook/<int:id>', views.p2_deletebook, name='p2-deletebook'),
 
 ]

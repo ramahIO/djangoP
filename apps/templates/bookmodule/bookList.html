@@ -5,10 +5,6 @@
 
 {% block content %}
 
-{% for obj in books %}
-ID: {{obj.id}}, Title: {{obj.title}}
-<hr>
-{% endfor %}
 
 <h3>Search Results:</h3>
 
@@ -24,5 +20,5 @@ ID: {{obj.id}}, Title: {{obj.title}}
 <p style="color:red;">No books found.</p>
 {% endif %}
 
-<a href="/books/search">Back to Search</a>
+<a href="/search">Back to Search</a>
 {% endblock content %}
