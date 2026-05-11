@@ -1,0 +1,13 @@
+{% extends "layouts/base.html" %}
+{% block title %}Products{% endblock %}
+{% block content %}
+<h2>Products List</h2>
+<a href="/lab11/task3/addproduct">+ Add Product</a>
+<hr>
+{% for p in products %}
+<div style="border:1px solid #ccc; padding:10px; margin:10px 0;">
+    <p>Name: {{ p.name }} | Price: {{ p.price }}</p>
+    <img src="{{ p.image.url }}" width="200">
+</div>
+{% endfor %}
+{% endblock %}

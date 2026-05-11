@@ -193,3 +193,77 @@ def p2_deletebook(request, id):
     book.delete()
     return redirect('/lab9_part2/listbooks')
 
+from django.contrib.auth.decorators import login_required
+from .models import Student, Address
+from .forms import StudentForm, AddressForm
+@login_required(login_url='/users/login')
+def t1_list(request):
+    students = Student.objects.all()
+    return render(request, 'bookmodule/t1_list.html', {'students': students})
+@login_required(login_url='/users/login')
+def t1_add(request):
+    form = StudentForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('/lab11/task1/students')
+    return render(request, 'bookmodule/t1_form.html', {'form': form, 'title': 'Add Student'})
+@login_required(login_url='/users/login')
+def t1_edit(request, id):
+    student = Student.objects.get(id=id)
+    form = StudentForm(request.POST or None, instance=student)
+    if form.is_valid():
+        form.save()
+        return redirect('/lab11/task1/students')
+    return render(request, 'bookmodule/t1_form.html', {'form': form, 'title': 'Edit Student'})
+@login_required(login_url='/users/login')
+def t1_delete(request, id):
+    Student.objects.get(id=id).delete()
+    return redirect('/lab11/task1/students')
+
+
+from .models import Student2, Address2
+from .forms import Student2Form
+@login_required(login_url='/users/login')
+def t2_list(request):
+    students = Student2.objects.all()
+    return render(request, 'bookmodule/t2_list.html', {'students': students})
+
+@login_required(login_url='/users/login')
+def t2_edit(request, id):
+    student = Student2.objects.get(id=id)
+    form = Student2Form(request.POST or None, instance=student)
+    if form.is_valid():
+        form.save()
+        return redirect('/lab11/task2/students')
+    return render(request, 'bookmodule/t2_form.html', {'form': form, 'title': 'Edit Student'})
+@login_required(login_url='/users/login')
+def t2_delete(request, id):
+    Student2.objects.get(id=id).delete()
+    return redirect('/lab11/task2/students')
+
+@login_required(login_url='/users/login')
+def t2_add(request):
+    if Address2.objects.count() == 0:
+        Address2.objects.create(city='Riyadh')
+        Address2.objects.create(city='Jeddah')
+        Address2.objects.create(city='Hail')
+    
+    form = Student2Form(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('/lab11/task2/students')
+    return render(request, 'bookmodule/t2_form.html', {'form': form, 'title': 'Add Student'})
+
+from .models import Product
+from .forms import ProductForm
+@login_required(login_url='/users/login')
+def t3_list(request):
+    products = Product.objects.all()
+    return render(request, 'bookmodule/t3_list.html', {'products': products})
+@login_required(login_url='/users/login')
+def t3_add(request):
+    form = ProductForm(request.POST or None, request.FILES or None)
+    if form.is_valid():
+        form.save()
+        return redirect('/lab11/task3/products')
+    return render(request, 'bookmodule/t3_form.html', {'form': form})

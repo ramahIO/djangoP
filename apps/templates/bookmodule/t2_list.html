@@ -1,0 +1,19 @@
+{% extends "layouts/base.html" %}
+{% block title %}Students Task2{% endblock %}
+{% block content %}
+<h2>Students List (Many-to-Many)</h2>
+<a href="/lab11/task2/addstudent">+ Add Student</a>
+<hr>
+{% for s in students %}
+<div style="border:1px solid #ccc; padding:10px; margin:10px 0;">
+    <p>Name: {{ s.name }} | Age: {{ s.age }}</p>
+    <p>Cities:
+        {% for addr in s.address.all %}
+        {{ addr.city }}{% if not forloop.last %}, {% endif %}
+        {% endfor %}
+    </p>
+    <a href="/lab11/task2/editstudent/{{ s.id }}">Edit</a> |
+    <a href="/lab11/task2/deletestudent/{{ s.id }}">Delete</a>
+</div>
+{% endfor %}
+{% endblock %}

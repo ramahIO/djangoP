@@ -1,0 +1,14 @@
+{% extends "layouts/base.html" %}
+{% block title %}Students{% endblock %}
+{% block content %}
+<h2>Students List</h2>
+<a href="/lab11/task1/addstudent">+ Add Student</a>
+<hr>
+{% for s in students %}
+<div style="border:1px solid #ccc; padding:10px; margin:10px 0;">
+    <p>Name: {{ s.name }} | Age: {{ s.age }} | City: {{ s.address.city }}</p>
+    <a href="/lab11/task1/editstudent/{{ s.id }}">Edit</a> |
+    <a href="/lab11/task1/deletestudent/{{ s.id }}">Delete</a>
+</div>
+{% endfor %}
+{% endblock %}

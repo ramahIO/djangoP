@@ -6,4 +6,15 @@
     <a href="{% url 'books.formatting' %}">Formatting</a>
     <a href="{% url 'books.listing' %}">Lists</a>
     <a href="/books/search">Search</a>
+    <a href="/lab8/task1">Lab8</a>
+    <a href="/lab9_part1/listbooks">Lab10-P1</a>
+    <a href="/lab9_part2/listbooks">Lab10-P2</a>
+    <a href="/lab11/task3/products">Lab11</a>
+    {% if user.is_authenticated %}
+    <a href="/users/logout">Logout ({{ user.username }})</a>
+    {% else %}
+    <a href="/users/login">Login</a>
+    <a href="/users/register">Register</a>
+    {% endif %}
+
 </nav>
